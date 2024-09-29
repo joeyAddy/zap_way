@@ -1,6 +1,7 @@
 import { useUser } from "@clerk/clerk-expo";
 import { StripeProvider } from "@stripe/stripe-react-native";
 import { Image, Text, View } from "react-native";
+import Animated from "react-native-reanimated";
 
 import Payment from "@/components/Payment";
 import PaystackPayment from "@/components/PaystackPayment";
@@ -8,7 +9,6 @@ import RideLayout from "@/components/RideLayout";
 import { icons } from "@/constants";
 import { formatPriceToNaira, formatTime } from "@/lib/utils";
 import { useDriverStore, useLocationStore } from "@/store";
-import Animated from "react-native-reanimated";
 
 const BookRide = () => {
   const { user } = useUser();

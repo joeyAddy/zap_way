@@ -1,6 +1,13 @@
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import React, { useEffect, useState } from "react";
-import { ActivityIndicator, Image, Text, View, Platform } from "react-native";
+import {
+  ActivityIndicator,
+  Image,
+  Text,
+  View,
+  Platform,
+  TouchableWithoutFeedback,
+} from "react-native";
 import MapView, { LatLng, Marker, PROVIDER_DEFAULT } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 
@@ -46,7 +53,12 @@ const Map = () => {
 
   const { selectedDriver, setDrivers } = useDriverStore();
 
-  const { data: drivers, loading, error } = useFetch<Driver[]>("/(api)/driver");
+  const {
+    data: drivers,
+    loading,
+    error,
+    refetch,
+  } = useFetch<Driver[]>("/(api)/driver");
   const [markers, setMarkers] = useState<MarkerData[]>([]);
   const [routeCoords, setRouteCoords] = useState<
     { latitude: number; longitude: number }[]
@@ -104,6 +116,9 @@ const Map = () => {
     return (
       <View className="flex justify-between items-center w-full">
         <Text>Error: {error}</Text>
+        <TouchableWithoutFeedback onPress={refetch}>
+          <Text>Refresh</Text>
+        </TouchableWithoutFeedback>
       </View>
     );
 
