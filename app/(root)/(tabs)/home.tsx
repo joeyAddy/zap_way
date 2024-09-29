@@ -125,7 +125,7 @@ const Home = () => {
               <Text className="text-xl font-JakartaBold mt-5 mb-3">
                 Your current location
               </Text>
-              <View className="flex flex-row items-center bg-transparent h-[300px]">
+              <View className="flex flex-row items-center bg-transparent h-[300px] rounded-3xl">
                 <Map />
               </View>
             </>

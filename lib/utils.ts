@@ -44,3 +44,8 @@ export function formatDate(dateString: string): string {
 
   return `${day < 10 ? "0" + day : day} ${month} ${year}`;
 }
+
+export const formatPriceToNaira = (amount: number): string => {
+  const roundedAmount = Math.ceil(amount); // Round up to the nearest whole number
+  return `₦${roundedAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+};

@@ -52,7 +52,8 @@ const RideLayout = ({
             <BottomSheetView
               style={{
                 flex: 1,
-                padding: 20,
+                paddingHorizontal: 20,
+                paddingVertical: 5,
               }}
             >
               {children}
@@ -61,7 +62,8 @@ const RideLayout = ({
             <BottomSheetScrollView
               style={{
                 flex: 1,
-                padding: 20,
+                paddingHorizontal: 20,
+                paddingVertical: 5,
               }}
             >
               {children}

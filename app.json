@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "uber",
-    "slug": "uber",
+    "name": "Zap Way",
+    "slug": "zap_way",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -19,7 +19,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "INTERNET"
+      ],
+      "package": "com.joeydevs.zap_way"
     },
     "web": {
       "bundler": "metro",
@@ -30,12 +34,20 @@
       [
         "expo-router",
         {
-          "origin": "https://uber.dev/"
+          "origin": "https://zap_way.dev/"
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": "https://zap_way.dev/"
+      },
+      "eas": {
+        "projectId": "992dea11-c42f-4380-bfef-c124a7ee5408"
+      }
     }
   }
 }

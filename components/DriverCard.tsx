@@ -1,8 +1,9 @@
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
+import Animated from "react-native-reanimated";
 
 import { icons } from "@/constants";
-import { formatTime } from "@/lib/utils";
+import { formatPriceToNaira, formatTime } from "@/lib/utils";
 import { DriverCardProps } from "@/types/type";
 
 const DriverCard = ({ item, selected, setSelected }: DriverCardProps) => {
@@ -13,8 +14,9 @@ const DriverCard = ({ item, selected, setSelected }: DriverCardProps) => {
         selected === item.id ? "bg-general-600" : "bg-white"
       } flex flex-row items-center justify-between py-5 px-3 rounded-xl`}
     >
-      <Image
+      <Animated.Image
         source={{ uri: item.profile_image_url }}
+        sharedTransitionTag={`driverProfileImage${item?.id}`}
         className="w-14 h-14 rounded-full"
       />
 
@@ -24,15 +26,15 @@ const DriverCard = ({ item, selected, setSelected }: DriverCardProps) => {
 
           <View className="flex flex-row items-center space-x-1 ml-2">
             <Image source={icons.star} className="w-3.5 h-3.5" />
-            <Text className="text-sm font-JakartaRegular">4</Text>
+            <Text className="text-sm font-JakartaRegular">{item.rating}</Text>
           </View>
         </View>
 
         <View className="flex flex-row items-center justify-start">
           <View className="flex flex-row items-center">
-            <Image source={icons.dollar} className="w-4 h-4" />
+            <Image source={icons.naira} className="w-4 h-4" />
             <Text className="text-sm font-JakartaRegular ml-1">
-              ${item.price}
+              {formatPriceToNaira(parseInt(item?.price!))}
             </Text>
           </View>
 
@@ -41,7 +43,7 @@ const DriverCard = ({ item, selected, setSelected }: DriverCardProps) => {
           </Text>
 
           <Text className="text-sm font-JakartaRegular text-general-800">
-            {formatTime(item.time!)}
+            {formatTime(parseInt(`${item.time!}`))}
           </Text>
 
           <Text className="text-sm font-JakartaRegular text-general-800 mx-1">

@@ -131,9 +131,9 @@ const SignUp = () => {
         </View>
         <ReactNativeModal
           isVisible={verification.state === "pending"}
-          // onBackdropPress={() =>
-          //   setVerification({ ...verification, state: "default" })
-          // }
+          onBackdropPress={() =>
+            setVerification({ ...verification, state: "default" })
+          }
           onModalHide={() => {
             if (verification.state === "success") {
               setShowSuccessModal(true);
@@ -183,7 +183,10 @@ const SignUp = () => {
             </Text>
             <CustomButton
               title="Browse Home"
-              onPress={() => router.push(`/(root)/(tabs)/home`)}
+              onPress={() => {
+                setShowSuccessModal(false);
+                router.push(`/(root)/(tabs)/home`);
+              }}
               className="mt-5"
             />
           </View>
