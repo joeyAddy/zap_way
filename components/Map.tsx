@@ -112,7 +112,7 @@ const Map = () => {
       provider={PROVIDER_DEFAULT}
       className="w-full h-full rounded-3xl"
       tintColor="black"
-      mapType="mutedStandard"
+      mapType={Platform.OS === "ios" ? "mutedStandard" : "terrain"}
       showsPointsOfInterest={false}
       initialRegion={region}
       showsUserLocation={true}

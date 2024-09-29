@@ -1,8 +1,12 @@
+import { Platform } from "react-native";
 import { LatLng } from "react-native-maps";
 
 import { Driver, MarkerData } from "@/types/type";
 
-const directionsAPI = process.env.EXPO_PUBLIC_GOOGLE_API_KEY;
+const directionsAPI =
+  Platform.OS === "android"
+    ? process.env.EXPO_PUBLIC_ANDROID_GOOGLE_API_KEY
+    : process.env.EXPO_PUBLIC_IOS_GOOGLE_API_KEY;
 
 export const generateMarkersFromData = ({
   data,
