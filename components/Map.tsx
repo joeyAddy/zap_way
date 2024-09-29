@@ -16,7 +16,10 @@ import { Driver, MarkerData } from "@/types/type";
 
 import CustomMarker from "./CustomMarker";
 
-const directionsAPI = process.env.EXPO_PUBLIC_GOOGLE_API_KEY;
+const directionsAPI =
+  Platform.OS === "android"
+    ? process.env.EXPO_PUBLIC_ANDROID_GOOGLE_API_KEY
+    : process.env.EXPO_PUBLIC_IOS_GOOGLE_API_KEY;
 
 // Function to interpolate points between two coordinates
 const interpolatePoints = (start: LatLng, end: LatLng, numPoints: number) => {

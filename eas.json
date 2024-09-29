@@ -13,6 +13,17 @@
       "android": {
         "buildType": "apk",
         "gradleCommand": ":app:assembleRelease"
+      },
+      "env": {
+        "EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY": "pk_test_ZWFzeS1oZWRnZWhvZy0yNy5jbGVyay5hY2NvdW50cy5kZXYk",
+        "DATABASE_URL": "postgresql://joy_ride_owner:N3uirGWaqB9b@ep-bitter-shape-a5pz0utk.us-east-2.aws.neon.tech/joy_ride?sslmode:require",
+        "EXPO_PUBLIC_GEOAPIFY_API_KEY": "bfdae658cad34ba58b88912ade957afb",
+        "EXPO_PUBLIC_ANDROID_GOOGLE_API_KEY": "AIzaSyCdwXiHqzyahxsXtOTzz6ooJ34uDaae95E",
+        "EXPO_PUBLIC_IOS_GOOGLE_API_KEY": "AIzaSyBBBqxCpYXUdQCsngCusR-OVu8q-cFVLUU",
+        "EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY": "pk_test_51PwhHNB4NEuYJxyHrRfCRzxPpkZihMvTPT7ML0sI6Mi5dY9DmvrtFlpyAu5YJ9Exb5W3ZC0K7TIXGSHHMQ1UIaqZ00REFv7Rt0",
+        "STRIPE_SECRET_KEY": "sk_test_51PwhHNB4NEuYJxyHDmHycBU4vji6rWkMvNvvzQf57kTOsZWLUCgowQkKDwnpNxit1oR18l59mFoziBbhGxlRpIlh00WQ01RrH2",
+        "EXPO_PUBLIC_PAYSTACK_KEY": "pk_test_ee586db3180d3b294ff4103d3524f3d2f80aa650",
+        "EXPO_PUBLIC_API_URL": "https://api.production.com"
       }
     },
     "production": {
