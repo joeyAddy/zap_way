@@ -58,11 +58,7 @@ const Map = () => {
     loading,
     error,
     refetch,
-  } = useFetch<Driver[]>("/(api)/driver", {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  } = useFetch<Driver[]>("/(api)/driver");
   const [markers, setMarkers] = useState<MarkerData[]>([]);
   const [routeCoords, setRouteCoords] = useState<
     { latitude: number; longitude: number }[]
@@ -130,12 +126,9 @@ const Map = () => {
     <MapView
       provider={PROVIDER_DEFAULT}
       className="w-full h-full rounded-3xl"
-      tintColor="black"
-      mapType={Platform.OS === "ios" ? "mutedStandard" : "terrain"}
-      showsPointsOfInterest={false}
+      mapType={Platform.OS === "ios" ? "mutedStandard" : "standard"}
       initialRegion={region}
       showsUserLocation={true}
-      userInterfaceStyle="light"
     >
       {markers.map((marker, index) => (
         <Marker
