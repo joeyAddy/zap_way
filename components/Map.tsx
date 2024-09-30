@@ -58,7 +58,11 @@ const Map = () => {
     loading,
     error,
     refetch,
-  } = useFetch<Driver[]>("/(api)/driver");
+  } = useFetch<Driver[]>("/(api)/driver", {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
   const [markers, setMarkers] = useState<MarkerData[]>([]);
   const [routeCoords, setRouteCoords] = useState<
     { latitude: number; longitude: number }[]
@@ -116,7 +120,7 @@ const Map = () => {
     return (
       <View className="flex justify-between items-center w-full">
         <Text>Error: {error}</Text>
-        <TouchableWithoutFeedback onPress={refetch}>
+        <TouchableWithoutFeedback onPress={() => refetch()}>
           <Text>Refresh</Text>
         </TouchableWithoutFeedback>
       </View>
